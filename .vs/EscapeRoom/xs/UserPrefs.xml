@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{4190FBC9-CD5D-FA5A-360D-403CAE57297A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MagicalPot.cs">
+    <Files>
+      <File FileName="Assets/MagicalPot.cs" Line="9" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EscapeRoom" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="MagicalPot.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4c38a679-efbf-4e30-ab74-8a3de361e750" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
