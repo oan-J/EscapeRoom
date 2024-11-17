@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class FloorTileIndividual : MonoBehaviour
 {
-    public Material glowMaterial;             // Material with emission effect for correct tiles
-    public Material defaultMaterial;          // Default material for resetting
     public int correctStepIndex;              // The correct step index for this tile
     public bool isLastTile;                   // Is this the last tile in the sequence?
 
@@ -16,7 +14,6 @@ public class FloorTileIndividual : MonoBehaviour
     private void Start()
     {
         tileRenderer = GetComponent<Renderer>();
-        tileRenderer.material = defaultMaterial;
 
         if (audioSource == null)
         {
@@ -57,12 +54,12 @@ public class FloorTileIndividual : MonoBehaviour
 
     private void ActivateLight()
     {
-        tileRenderer.material = glowMaterial;
+        tileRenderer.material.SetColor("_EmissionColor", Color.yellow); // Assuming Glow effect
     }
 
     private void DeactivateLight()
     {
-        tileRenderer.material = defaultMaterial;
+        tileRenderer.material.SetColor("_EmissionColor", Color.black); // Assuming default reset
     }
 
     private void ResetTiles()
