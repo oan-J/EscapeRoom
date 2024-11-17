@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{4190FBC9-CD5D-FA5A-360D-403CAE57297A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.meta.xr.sdk.interaction@69.0.1/Runtime/Scripts/Interaction/Models/Locomotion/Turn/LocomotionTurnerInteractorVisual.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Shaders/Lit.shader">
     <Files>
-      <File FileName="Library/PackageCache/com.meta.xr.sdk.interaction@69.0.1/Runtime/Scripts/Interaction/Models/Locomotion/Turn/LocomotionTurnerInteractorVisual.cs" Line="182" Column="1" />
+      <File FileName="Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Shaders/Lit.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ae71671f-304c-432c-9268-725409114f26" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="78f903c2-4615-4f3f-935d-8d47a2953817" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
