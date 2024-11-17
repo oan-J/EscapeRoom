@@ -4,20 +4,12 @@ using System.Collections.Generic;
 public class FloorTileGame : MonoBehaviour
 {
     public GameObject OVRRig;
-    public AudioClip successClip;
     public List<FloorTile> floorTiles;
 
     private int currentStepIndex = 0;
-    private AudioSource audioSource;
 
     private void Start()
     {
-        audioSource = OVRRig.GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = OVRRig.AddComponent<AudioSource>();
-        }
-
         ResetTiles();
     }
 
@@ -41,7 +33,6 @@ public class FloorTileGame : MonoBehaviour
                     if (currentStepIndex >= floorTiles.Count)
                     {
                         // Player stepped on all tiles correctly
-                        audioSource.PlayOneShot(successClip);
                         currentStepIndex = 0;
                         ResetTiles();
                     }
