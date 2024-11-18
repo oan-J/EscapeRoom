@@ -32,6 +32,15 @@ TagManager:
   - QDSUISection
   - MagicPot
   - grabbable
+  - X_correct
+  - Y_correct
+  - A_correct
+  - B_correct
+  - X_grabbable
+  - Y_grabbable
+  - A_grabbable
+  - B_grabbable
+  - Cylinder
   layers:
   - Default
   - TransparentFX
@@ -45,7 +54,7 @@ TagManager:
   - Hands
   - Teleporter
   - NoHandCollide
-  - 
+  - StaticPuzzleObjects
   - 
   - 
   - 

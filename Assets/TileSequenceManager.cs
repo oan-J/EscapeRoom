@@ -10,6 +10,7 @@ public class TileSequenceManager : MonoBehaviour
 
     private int currentStep = 0; 
     private AudioSource audioSource;
+    private bool gameCompleted = false; // Flag to ensure the game is marked complete only once
 
     void Start()
     {
@@ -23,7 +24,6 @@ public class TileSequenceManager : MonoBehaviour
 
     void Update()
     {
-   
         foreach (GameObject tile in tiles)
         {
             if (tile.transform.position.y > 0.05f) 
@@ -43,11 +43,12 @@ public class TileSequenceManager : MonoBehaviour
             if (currentStep >= correctSequence.Count)
             {
                 PlaySuccessSound();
+                MarkGameComplete(); // Mark Game 2 as complete when the sound plays
             }
         }
         else
         {
-            Debug.Log("Wrong floor tiles：" + tileName + ", without triggering any effects.");
+            Debug.Log("Wrong floor tile: " + tileName + ", without triggering any effects.");
         }
     }
 
@@ -60,7 +61,7 @@ public class TileSequenceManager : MonoBehaviour
             material.EnableKeyword("_EMISSION");
             material.SetColor("_EmissionColor", new Color(1f, 0.84f, 0f)); 
 
-            Debug.Log(tile.name + " Already illuminated");
+            Debug.Log(tile.name + " illuminated");
         }
     }
 
@@ -70,6 +71,23 @@ public class TileSequenceManager : MonoBehaviour
         {
             audioSource.PlayOneShot(successSound);
             Debug.Log("All tiles are activated in the correct order, and the success sound effect plays!");
+        }
+    }
+
+    void MarkGameComplete()
+    {
+        if (gameCompleted) return; // Ensure this logic runs only once
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.CompleteGame(1); // Mark Game 2 as complete (index 1)
+            gameCompleted = true;
+            Debug.Log("Game 2 completed!");
+        }
+        else
+        {
+            Debug.LogError("GameManager not found in the scene!");
         }
     }
 }

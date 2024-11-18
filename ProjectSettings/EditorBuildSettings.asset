@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/EscapeRoom2.unity
     guid: 5e9e384987d4e418099cb43deb24932d
-  - enabled: 1
+  - enabled: 0
     path: Assets/EscapeRoom backup.unity
     guid: f885911915eabf74aa494bf557c2786b
   - enabled: 1

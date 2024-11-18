@@ -16,6 +16,7 @@ public class SequenceChecker : MonoBehaviour
     private int currentGroupIndex = 0; 
     private bool[] groupHitFlags; 
     private int expectedNextIndex = 0; 
+    private bool gameCompleted = false; // Flag to track if Game 1 is completed
 
     void Start()
     {
@@ -53,10 +54,11 @@ public class SequenceChecker : MonoBehaviour
                         greySystem.Stop();
                         Debug.Log("All sequences completed.");
                         PlayGoldenSystemContinuously(); 
-                        
-                        
+
+                        // Play audio and mark the game complete
                         if (!audioSource.isPlaying) {
                             audioSource.Play();
+                            MarkGameComplete(); // Mark Game 1 complete
                         }
                     }
                 }
@@ -112,6 +114,22 @@ public class SequenceChecker : MonoBehaviour
     {
         goldenSystem.Play();
         yield return new WaitForSeconds(10000); // Wait for 10 seconds
-        //goldenSystem.Stop();
+    }
+
+    private void MarkGameComplete()
+    {
+        if (gameCompleted) return; // Prevent duplicate completion calls
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.CompleteGame(0); // Mark Game 1 as complete
+            gameCompleted = true;
+            Debug.Log("Game 1 completed!");
+        }
+        else
+        {
+            Debug.LogError("GameManager not found in the scene!");
+        }
     }
 }
