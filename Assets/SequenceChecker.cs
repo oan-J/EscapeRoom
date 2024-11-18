@@ -19,7 +19,8 @@ public class SequenceChecker : MonoBehaviour
 
     void Start()
     {
-        greySystem.Play(); 
+        greySystem.Play();
+        Debug.Log("sequencechecker in! bottle potion[]");
         groupHitFlags = new bool[sequenceGroups[currentGroupIndex].Length];
     }
 

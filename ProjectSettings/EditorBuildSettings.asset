@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/EscapeRoom.unity
     guid: fffc368ce7c545240a157d1fa3ce0e97
-  - enabled: 1
+  - enabled: 0
     path: Assets/EscapeRoom1.unity
     guid: 7a1790867d1cc4bf993c9541da3a91c1
+  - enabled: 1
+    path: Assets/EscapeRoom3.unity
+    guid: 8999889ce0b8b4865ac2e8292cb688b2
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 398d945149746a94899cafbfeddf8c9f,
       type: 2}
