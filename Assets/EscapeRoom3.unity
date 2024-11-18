@@ -63085,7 +63085,7 @@ MonoBehaviour:
   - Floor Tile_5
   - Floor Tile_6
   - Floor Tile_3
-  successSound: {fileID: 8300000, guid: e695c1200e2af436980c24f00a2e9cb1, type: 3}
+  successSound: {fileID: 8300000, guid: 33b1f4b924ff34be18e9b8b2d1b04171, type: 3}
 --- !u!1 &1978552644
 GameObject:
   m_ObjectHideFlags: 0

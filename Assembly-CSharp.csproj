@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/TileSequenceController.cs" />
+    <Compile Include="Assets/LetterMatchSystem.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
@@ -81,15 +82,17 @@
     <Compile Include="Assets/SequenceChecker.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
+    <Compile Include="Assets/GameManager.cs" />
     <Compile Include="Assets/TileInteraction.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets/CylinderPuzzleManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
     <Compile Include="Assets/FloorTileAutoGlow.cs" />
-    <Compile Include="Assets/LetterSnap.cs" />
     <Compile Include="Assets/RayInteraction.cs" />
+    <Compile Include="Assets/CylinderHitEffect.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
@@ -104,11 +107,12 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/TileSequenceManager.cs" />
+    <Compile Include="Assets/Door.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/FloorTileRaycast.cs" />
     <Compile Include="Assets/Tilesuccess.cs" />
     <Compile Include="Assets/FloorTilePuzzle.cs" />
-    <Compile Include="Assets/PuzzleManager.cs" />
+    <Compile Include="Assets/LetterMatch.cs" />
     <Compile Include="Assets/GrabObject.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
@@ -1001,6 +1005,10 @@
       <HintPath>Library/ScriptAssemblies/Meta.XR.Editor.PlayCompanion.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.MetaQuestSupport.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.XR.Interaction.Toolkit.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.XR.Interaction.Toolkit.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1025,6 +1033,10 @@
       <HintPath>Library/ScriptAssemblies/VoiceSDK.Telemetry.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.OculusQuestSupport.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1037,12 +1049,20 @@
       <HintPath>Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.XR.OpenXR">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetaXrSimulator.Editor">
       <HintPath>Library/ScriptAssemblies/MetaXrSimulator.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.Wit.Composer.Editor">
       <HintPath>Library/ScriptAssemblies/Meta.Wit.Composer.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.MetaQuestSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
@@ -1081,10 +1101,6 @@
       <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.XR.Oculus.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Meta.XR.MultiplayerBlocks.Shared.Editor">
       <HintPath>Library/ScriptAssemblies/Meta.XR.MultiplayerBlocks.Shared.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1095,6 +1111,10 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oculus.Interaction.UnityXR">
+      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.UnityXR.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Oculus.VR.Editor">
@@ -1197,6 +1217,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Oculus.Interaction.Editor.UnityXR">
+      <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Editor.UnityXR.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Oculus.VR">
       <HintPath>Library/ScriptAssemblies/Oculus.VR.dll</HintPath>
       <Private>False</Private>
@@ -1255,6 +1279,10 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.ConformanceAutomation">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.ConformanceAutomation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Meta.Voice.NLayer">
@@ -1327,6 +1355,10 @@
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.OculusQuestSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.XR.Interaction.Toolkit">
@@ -1449,10 +1481,6 @@
       <HintPath>Library/ScriptAssemblies/Meta.WitAi.TTS.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.XR.Oculus">
-      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Meta.Wit.Composer">
       <HintPath>Library/ScriptAssemblies/Meta.Wit.Composer.dll</HintPath>
       <Private>False</Private>
@@ -1467,6 +1495,10 @@
     </Reference>
     <Reference Include="Oculus.Interaction.Editor">
       <HintPath>Library/ScriptAssemblies/Oculus.Interaction.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
@@ -1505,6 +1537,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.RuntimeDebugger.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.XR.OpenXR.Features.RuntimeDebugger.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="VoiceSDK.Runtime.Composer">
       <HintPath>Library/ScriptAssemblies/VoiceSDK.Runtime.Composer.dll</HintPath>
       <Private>False</Private>
@@ -1527,6 +1563,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj">
+      <Project>{73FA450C-76D7-27B2-60A6-C47443E5327F}</Project>
+      <Name>Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj">
+      <Project>{EDCBBD3D-009A-9E34-6070-972416C2EBF3}</Project>
+      <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj">
+      <Project>{DC237359-D226-BF42-8D3C-EC01F409C5D4}</Project>
+      <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)/Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
