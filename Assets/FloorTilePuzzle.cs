@@ -11,6 +11,8 @@ public class FloorTilePuzzle : MonoBehaviour
     private int currentStep = 0;              // Player's progress in the sequence
     private AudioSource audioSource;
 
+    public Transform cameraTransform;         // Reference to OVRCameraRig's CenterEyeAnchor
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -19,6 +21,30 @@ public class FloorTilePuzzle : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
         ResetPuzzle();
+    }
+
+    private void Update()
+    {
+        DetectTileStepped();
+    }
+
+    private void DetectTileStepped()
+    {
+        Vector3 playerPosition = cameraTransform.position;
+
+        for (int i = 0; i < floorTiles.Count; i++)
+        {
+            GameObject tile = floorTiles[i];
+            Collider tileCollider = tile.GetComponent<Collider>();
+
+            // 检查玩家的 x, z 位置是否在地砖的碰撞范围内
+            if (tileCollider != null && tileCollider.bounds.Contains(new Vector3(playerPosition.x, tileCollider.bounds.center.y, playerPosition.z)))
+            {
+                // Player is standing on the tile
+                OnTileStepped(tile);
+                break; // 找到踩到的地砖后退出循环
+            }
+        }
     }
 
     // Method to call when player steps on a tile
