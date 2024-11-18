@@ -4281,6 +4281,7 @@ GameObject:
   - component: {fileID: 268404763}
   - component: {fileID: 268404764}
   - component: {fileID: 268404765}
+  - component: {fileID: 268404766}
   m_Layer: 0
   m_Name: Floor Tile_6
   m_TagString: Untagged
@@ -4456,6 +4457,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Floor Tile_6
+--- !u!114 &268404766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268404756}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f20b3315f1d4e22a584da793b2a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
+  transparency: 0.8
 --- !u!1 &272032413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6527,7 +6542,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429696464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db2bf7c84f23e43e7902ced672737625, type: 3}
   m_Name: 
@@ -9351,6 +9366,7 @@ GameObject:
   - component: {fileID: 652494678}
   - component: {fileID: 652494676}
   - component: {fileID: 652494675}
+  - component: {fileID: 652494684}
   m_Layer: 0
   m_Name: Floor Tile_1
   m_TagString: Untagged
@@ -9514,6 +9530,20 @@ Transform:
   - {fileID: 2054568011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652494684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652494674}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f20b3315f1d4e22a584da793b2a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
+  transparency: 0.5
 --- !u!1 &652718135
 GameObject:
   m_ObjectHideFlags: 0
@@ -11130,9 +11160,9 @@ GameObject:
   - component: {fileID: 770107620}
   - component: {fileID: 770107619}
   - component: {fileID: 770107624}
-  - component: {fileID: 770107625}
   - component: {fileID: 770107626}
   - component: {fileID: 770107627}
+  - component: {fileID: 770107628}
   m_Layer: 0
   m_Name: Floor Tile_8
   m_TagString: Untagged
@@ -11256,18 +11286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OVRRig: {fileID: 1933196643}
   floorTiles: []
---- !u!114 &770107625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770107618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37293fce2daef47869a863c00bedbef3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &770107626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11308,6 +11326,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Floor Tile_8
+--- !u!114 &770107628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770107618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f20b3315f1d4e22a584da793b2a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
+  transparency: 0.8
 --- !u!1001 &778544780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17111,6 +17143,7 @@ GameObject:
   - component: {fileID: 1089875404}
   - component: {fileID: 1089875405}
   - component: {fileID: 1089875406}
+  - component: {fileID: 1089875407}
   m_Layer: 0
   m_Name: Floor Tile_5
   m_TagString: Untagged
@@ -17286,6 +17319,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: Floor Tile_5
+--- !u!114 &1089875407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089875397}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f20b3315f1d4e22a584da793b2a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
+  transparency: 0.8
 --- !u!1 &1093016747
 GameObject:
   m_ObjectHideFlags: 0
@@ -38321,6 +38368,7 @@ GameObject:
   - component: {fileID: 1783644078}
   - component: {fileID: 1783644079}
   - component: {fileID: 1783644080}
+  - component: {fileID: 1783644081}
   m_Layer: 0
   m_Name: Floor Tile_3
   m_TagString: Untagged
@@ -38463,7 +38511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783644070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db2bf7c84f23e43e7902ced672737625, type: 3}
   m_Name: 
@@ -38473,6 +38521,20 @@ MonoBehaviour:
   tileMaterial: {fileID: 2100000, guid: 0b86037e1326349eb9cd7555b9075543, type: 2}
   emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
   transparency: 0.5
+--- !u!114 &1783644081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783644070}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f20b3315f1d4e22a584da793b2a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {r: 1, g: 0.84, b: 0, a: 1}
+  transparency: 0.8
 --- !u!1 &1783884298
 GameObject:
   m_ObjectHideFlags: 0
@@ -40608,6 +40670,7 @@ GameObject:
   - component: {fileID: 1971068992}
   - component: {fileID: 1971068991}
   - component: {fileID: 1971068993}
+  - component: {fileID: 1971068994}
   m_Layer: 0
   m_Name: TileSequenceController
   m_TagString: Untagged
@@ -40669,7 +40732,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971068990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b23a09d34b7746ba81a52ffb3f8e404, type: 3}
   m_Name: 
@@ -40681,6 +40744,34 @@ MonoBehaviour:
   floorTile_6: {fileID: 268404765}
   floorTile_3: {fileID: 1783644079}
   successSound: {fileID: 8300000, guid: e695c1200e2af436980c24f00a2e9cb1, type: 3}
+--- !u!114 &1971068994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971068990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78794983753c8418a9eda7526b4dc88e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 652494674}
+  - {fileID: 429696464}
+  - {fileID: 1783644070}
+  - {fileID: 1515023553}
+  - {fileID: 1089875397}
+  - {fileID: 268404756}
+  - {fileID: 759414219}
+  - {fileID: 770107618}
+  - {fileID: 1339036380}
+  correctSequence:
+  - Floor Tile_8
+  - Floor Tile_5
+  - Floor Tile_6
+  - Floor Tile_3
+  successSound: {fileID: 8300000, guid: 33b1f4b924ff34be18e9b8b2d1b04171, type: 3}
 --- !u!1 &1979364231
 GameObject:
   m_ObjectHideFlags: 0
