@@ -8,7 +8,7 @@ public class TileSequenceController : MonoBehaviour
     public OVRInput.Button confirmButton = OVRInput.Button.PrimaryIndexTrigger; // 确认按钮
 
     [Header("Tiles Settings")]
-    public List<Tile> tiles; // 所有地砖的列表
+    public List<FloorTile01> tiles; // 所有地砖的列表
     public List<string> correctSequence; // 正确的地砖名称序列
 
     [Header("Feedback")]
@@ -25,7 +25,7 @@ public class TileSequenceController : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
 
         // 初始化每个地砖
-        foreach (Tile tile in tiles)
+        foreach (FloorTile01 tile in tiles)
         {
             tile.Initialize(emissionColor, transparency);
         }
@@ -37,9 +37,12 @@ public class TileSequenceController : MonoBehaviour
         Ray ray = new Ray(rightHandAnchor.position, rightHandAnchor.forward);
         RaycastHit hit;
 
+        // 可视化射线（用于调试）
+        Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red);
+
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            Tile hitTile = hit.collider.GetComponent<Tile>();
+            FloorTile01 hitTile = hit.collider.GetComponent<FloorTile01>();
 
             if (hitTile != null)
             {
@@ -52,8 +55,11 @@ public class TileSequenceController : MonoBehaviour
         }
     }
 
-    void HandleTileSelection(Tile selectedTile)
+    void HandleTileSelection(FloorTile01 selectedTile)
     {
+        Debug.Log("Selected Tile: " + selectedTile.tileName);
+        Debug.Log("Expected Tile: " + correctSequence[currentStep]);
+
         // 检查选中的地砖是否是下一个正确的地砖
         if (selectedTile.tileName == correctSequence[currentStep])
         {
@@ -71,7 +77,9 @@ public class TileSequenceController : MonoBehaviour
                     audioSource.PlayOneShot(successSound);
                 }
 
-                // 这里可以添加更多成功后的逻辑
+                Debug.Log("Sequence Completed Successfully!");
+
+                // 可以在此添加更多成功后的逻辑
 
                 // 重置步骤（如果需要重复此过程）
                 // currentStep = 0;
@@ -80,6 +88,7 @@ public class TileSequenceController : MonoBehaviour
         else
         {
             // 错误的地砖，重置序列
+            Debug.Log("Wrong Tile Selected. Resetting sequence.");
             ResetTiles();
         }
     }
@@ -87,7 +96,7 @@ public class TileSequenceController : MonoBehaviour
     void ResetTiles()
     {
         currentStep = 0;
-        foreach (Tile tile in tiles)
+        foreach (FloorTile01 tile in tiles)
         {
             tile.SetGlowing(false);
         }
