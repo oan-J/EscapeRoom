@@ -7,27 +7,60 @@ public class LetterSnap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(correctTargetTag))
+        if (!isSnapped && other.CompareTag(correctTargetTag))
         {
-            transform.position = other.transform.position;
-            transform.rotation = other.transform.rotation;
-            isSnapped = true;
-            Debug.Log($"{gameObject.name} is in the correct position!");
+            // Check for overlapping objects before snapping
+            if (!IsOverlapping(other))
+            {
+                SnapToPosition(other);
+                isSnapped = true;
+                Debug.Log($"{gameObject.name} is in the correct position!");
 
-            GetComponent<Rigidbody>().isKinematic = true;
-            PuzzleManager.Instance.IncrementCorrectLetterCount();  // Corrected to IncrementCorrectLetterCount
+                // Disable physics after snapping
+                Rigidbody rb = GetComponent<Rigidbody>();
+                if (rb != null) rb.isKinematic = true;
+
+                // Notify Puzzle Manager
+                PuzzleManager.Instance.IncrementCorrectLetterCount();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(correctTargetTag) && isSnapped)
+        if (isSnapped && other.CompareTag(correctTargetTag))
         {
             isSnapped = false;
             Debug.Log($"{gameObject.name} was moved away from its target!");
 
-            GetComponent<Rigidbody>().isKinematic = false;
-            PuzzleManager.Instance.DecrementCorrectLetterCount();  // Corrected to DecrementCorrectLetterCount
+            // Re-enable physics after snapping
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null) rb.isKinematic = false;
+
+            // Notify Puzzle Manager
+            PuzzleManager.Instance.DecrementCorrectLetterCount();
         }
+    }
+
+    private void SnapToPosition(Collider target)
+    {
+        // Smoothly move to the correct position
+        transform.position = target.transform.position;
+        transform.rotation = target.transform.rotation;
+    }
+
+    private bool IsOverlapping(Collider target)
+    {
+        // Check if there are other objects already occupying the target position
+        Collider[] overlappingColliders = Physics.OverlapSphere(target.transform.position, 0.1f);
+        foreach (var collider in overlappingColliders)
+        {
+            if (collider != target && collider != GetComponent<Collider>())
+            {
+                Debug.Log("Cannot snap, target position is blocked.");
+                return true;
+            }
+        }
+        return false;
     }
 }
