@@ -252,7 +252,7 @@ PlayerSettings:
   clonedFromGUID: 237443957c5fa5244a2b822cab04f20e
   templatePackageId: 
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
@@ -857,7 +857,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: EscapeRoom
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -865,7 +865,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: EscapeRoom
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: EscapeRoom
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
