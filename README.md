@@ -17,6 +17,7 @@ Find 2 pillar, and bump them together.
 Search the room's corners to find hidden letters. Find the right letter and place it correctly on the board.
 
 ### Video Link
+
 https://drive.google.com/file/d/1UfrK0i1oZofmySALN0T6mAk_0o5ofelO/view
 
 ## Assets Used
